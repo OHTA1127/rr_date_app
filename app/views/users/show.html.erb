@@ -1,0 +1,15 @@
+<h1>ユーザー詳細ページ</h1>
+
+<%= @user.name %>
+<%= link_to 'プロフィール編集', edit_user_path %>
+<%= link_to '新規投稿', new_post_path %>
+<%= image_tag @user.user_image, size: "100x100" %>
+
+<% @posts.each do |post| %>
+  <%= link_to post_path(post) do%>
+    <h3><%= post.title %></h3>
+  <% end %>
+  <p><%= post.description %></p>
+  <%= post.location %>
+  <%= image_tag post.post_image, size: "100x100" %>
+<% end %>

@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <h3><%= post.title %></h3>
+  <% end %>
+  <p><%= post.description %></p>
+  <%= post.location %>
+  <%= image_tag post.post_image, size: "100x100" %>
+  <!-- 他の投稿の属性を表示するためのコードを追加 -->
+<% end %>
