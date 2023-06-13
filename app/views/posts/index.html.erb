@@ -5,5 +5,7 @@
   <p><%= post.description %></p>
   <%= post.location %>
   <%= image_tag post.post_image, size: "100x100" %>
+  <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+
   <!-- 他の投稿の属性を表示するためのコードを追加 -->
 <% end %>
