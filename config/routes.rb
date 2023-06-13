@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     root to: 'homes#top', as: :custom_root # ログアウト後に表示するページのルートパスを指定する
   end
   get 'home/about', to: 'homes#about'
-  resources :users, :posts
+  resources :users, :posts do
+    resources :post_comments, only: [:create, :destroy]
+  end
 
 end
