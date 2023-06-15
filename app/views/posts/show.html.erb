@@ -1,4 +1,9 @@
-<%= image_tag @post.post_image, size: "100x100" %>
+<% if @post.post_image.present? %>
+  <%= image_tag @post.post_image, size: "100x100" %>
+<% else %>
+  <%= image_tag "default-image.jpg", size: "100x100" %>
+<% end %>
+
 <%= @post.location %>
 <%= @post.title %>
 <%= @post.description %>
@@ -11,6 +16,7 @@
   <p><%= image_tag post_comment.user.user_image, size: "50x50" %></p>
   <%= post_comment.user.name %>
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+  
   <% if post_comment.user == current_user %>
     <%= form_with(model: [post_comment.post, post_comment], url: post_post_comment_path(post_comment.post, post_comment), local: true, method: :delete) do |f| %>
       <%= f.submit "削除", data: { confirm: "本当に削除しますか？" } %>
@@ -75,4 +81,4 @@ function codeAddress(){
 
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=a&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR-API&callback=initMap" async defer></script>

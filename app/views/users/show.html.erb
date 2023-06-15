@@ -11,5 +11,9 @@
   <% end %>
   <p><%= post.description %></p>
   <%= post.location %>
-  <%= image_tag post.post_image, size: "100x100" %>
+  <% if post.post_image.present? %>
+    <%= image_tag post.post_image, size: "100x100" %>
+  <% else %>
+    <%= image_tag "default-image.jpg", size: "100x100" %>
+  <% end %>
 <% end %>
